@@ -1,0 +1,158 @@
+#Python interview questions courtesy of: https://medium.com/@nikitasilaparasetty/python-interview-coding-questions-with-solutions-for-beginners-7f6d782defac
+#I definitely urge you to attempt on your own first, and just for fun maybe try finding the answer in multiple ways.
+
+#Question 1: Write a Python program to check if a string is a palindrome.
+def is_palin(string):
+    rev_str = string[::-1]
+    if string == rev_str:
+        return 'Is a palindrome'
+
+    return 'Is not a palindrome'
+
+print(is_palin('mom'))
+print(is_palin('camp'))
+print(is_palin('racecar'))
+print(is_palin('brick'))
+print(is_palin('kayak'))
+
+#Question 2: Write a Python program to find the factorial of a number.
+#6! = 6*5*4*3*2*1
+#5! = 5* 4* 3*2 *1 =120
+#4! = 4*3* 2* 1 =24
+#3! = 3 *2 *1 = 6
+n = 5
+fact = 1
+while n <=n and n >0:
+    b = n * (n-1) 
+    fact = fact * b 
+    n = n-2
+    if n ==1:
+        break
+print(fact)
+   
+#Question 3: Write a Python program to find the largest element in a list.
+    
+listx = [1,5,9,5,2,98,54,23,11,43]
+
+largest = max(listx)
+print(largest)
+
+#Question 4: Write a Python program to reverse a string.
+
+string2 = 'penthouse'
+
+string2_rev = string2[::-1]
+
+#Question 5: Write a Python program to count the frequency of each element in a list.
+
+listy = ['cat','dog','horse','box','rabbit','box','box','cat']
+
+from collections import Counter
+
+freq = Counter(listy)
+print(freq)
+
+#Question 6: Write a Python program to check if a number is prime.
+
+def is_prime(number):
+    for i in range(2,number):
+        if number%i == 0:
+            return 'Is not a prime number'
+  
+    return 'Is a prime number'
+
+print(is_prime(13))
+print(is_prime(8))
+print(is_prime(12))
+print(is_prime(17))
+print(is_prime(21))
+print(is_prime(33))
+print(is_prime(35))
+print(is_prime(25))
+print(is_prime(28))
+print(is_prime(27))
+print(is_prime(31))
+
+#Question 7: Write a Python program to find the common elements between two lists.
+
+lista = ['cat','cats','dog','pony','zebra','lion']
+listb = ['cat','pig','lion','mongoose','skunk']
+common = []
+for word in lista:
+    for w in listb:
+        if word == w:
+            common.append(word)
+#OR
+            
+for a,b in enumerate(lista):
+    for c,d in enumerate(listb):
+        if b==d:
+            print(b,'is the same as',d)
+#OR
+
+set_a = set(lista)
+set_b = set(listb)
+
+set_c = set_a.intersection(set_b)
+
+#Question 9: Write a Python program to find the second largest number in a list.
+
+import random
+
+ran_num = []
+for i in range(10):
+    ran_num.append(random.randint(1,100))
+
+#remove the highest number so that the next highest number becomes the new max
+ran_num.remove(max(ran_num))
+
+#get the max of the new list (previously the second highest number)
+max(ran_num)
+
+#OR
+
+numbers = random.randint(1,100)
+order_list = []
+for i in range(10):
+    order_list.append(random.randint(1,100))
+#output: [28, 88, 46, 27, 26, 3, 96, 26, 94, 52]
+
+mx = 0
+sec_mx = 0
+
+for num in range(len(order_list)-1):
+    if order_list[num] > mx:
+        if order_list[num] > order_list[num+1]: 
+            mx = order_list[num]
+            sec_mx = order_list[num+1]
+        else:
+            mx = order_list[num+1]
+            sec_mx = order_list[num]
+    else:
+        if order_list[num] < mx and order_list[num] > sec_mx:
+            sec_mx = order_list[num]
+print(mx)
+print(sec_mx)
+
+#output:
+#96
+#94
+
+#Question 10: Write a Python program to remove duplicates from a list.
+import random
+
+listx = []
+for i in range(10):
+    listx.append(random.randint(1,5))
+#listx output = [1, 2, 3, 2, 4, 5, 1, 1, 1, 5]
+
+nodups = set(listx)
+#nodups output = {1, 2, 3, 4, 5}
+
+#OR
+
+dupfree = []
+for element in listx:
+    if element not in dupfree:
+        dupfree.append(element)
+#output = [1,2,3,4,5]
