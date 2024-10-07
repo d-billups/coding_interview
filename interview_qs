@@ -37,6 +37,12 @@ listx = [1,5,9,5,2,98,54,23,11,43]
 largest = max(listx)
 print(largest)
 
+-or-
+
+list2 = sorted(listx)
+
+max_num = list2[-1]
+
 #Question 4: Write a Python program to reverse a string.
 
 string2 = 'penthouse'
@@ -51,6 +57,16 @@ from collections import Counter
 
 freq = Counter(listy)
 print(freq)
+
+-or-
+
+z = set()
+
+for i in listy:
+    x = listy.count(i)
+    #print(i, x)
+    
+    z.add(i + ' '+ str(x))
 
 #Question 6: Write a Python program to check if a number is prime.
 
